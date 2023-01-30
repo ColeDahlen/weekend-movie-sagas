@@ -6,7 +6,8 @@ function App() {
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
-      <Router>        
+      <Router>   
+        {/* First page */}
         <Route path="/" exact>
           <MovieList />
         </Route>
@@ -15,7 +16,6 @@ function App() {
         <Route exact path='/details'>
           <Details />
         </Route>
-        {/* Add Movie page */}
       </Router>
     </div>
   );

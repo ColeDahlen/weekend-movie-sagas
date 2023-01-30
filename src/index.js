@@ -30,10 +30,12 @@ function* fetchAllMovies() {
         
 }
 function* fetchOneMovie(action){
+    // Get the movie and genres from the database that matches the movie id clicked
     try {
         console.log(action.payload)
         const movie = yield axios.get(`/api/movie/${action.payload}`)
         console.log('all genres for the movies selected', movie)
+        // Updates a piece of global state to be the response I got from my server
         yield put({
             type: 'SELECT_MOVIE',
             payload: movie.data
@@ -46,6 +48,7 @@ function* fetchOneMovie(action){
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
+// Piece of global state, that only holds one movie
 const movieClicked = (state={}, action) =>{
     if(action.type === 'SELECT_MOVIE'){
         console.log(action.payload)

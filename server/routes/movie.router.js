@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
     })
 
 });
+// GET route for a single movie + genres
 router.get('/:id', (req, res) => {
   const query = `
   SELECT "genres"."name", movies_genres.id, movies.title, movies.description, movies.poster FROM movies 
